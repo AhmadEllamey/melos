@@ -1,5 +1,4 @@
 # melos_managed_dependency_overrides: counter_lints
 dependency_overrides:
-  counter_lints:
-    path: ../counter_lints
-  dio: 4.0.6
+  dio: 5.3.1
+  flutter_lints: ^2.0.0

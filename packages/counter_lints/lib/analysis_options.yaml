@@ -9,3 +9,4 @@ linter:
     - sort_constructors_first
     - prefer_single_quotes
     - use_super_parameters
+    - depend_on_referenced_packages

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 /// A card that displays the current value of a counter.
 class CounterCard extends StatelessWidget {
   const CounterCard({super.key, required this.count});
