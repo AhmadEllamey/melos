@@ -1,8 +1,7 @@
 import 'package:counter_widgets/counter_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:lib_example/lib_example.dart';
-import 'package:counter_widgets/src/calculator_service.dart';
-import 'package:lib_example/calculator_service.dart';
+import 'package:lib_example/calculator_service_export.dart';
+
 
 
 void main() {
@@ -42,43 +41,40 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  String value = "";
+  String valueX = 'xyz';
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     Future.delayed(Duration.zero).then((value) async{
-      Future<String> xy = CalculatorService().getUrlResponse();
-      setState(() async{
-        value = xy;
+      String xy = await CalculatorService().getUrlResponse();
+      setState((){
+        valueX = xy;
       });
-      Future.delayed(const Duration(seconds: 3));
-      Future<String> zy = CalculatorServiceLib().getUrlResponse();
-      setState(() async{
-        value = zy;
+      await Future.delayed(const Duration(seconds: 3));
+      String zy = await CalculatorServiceLib().getUrlResponse();
+      setState((){
+        valueX = zy;
       });
-      // print(await libDio.get("https://pub.dev/packages/coverage/versions"));
-      // print(await counterDio.get("https://pub.dev/packages/coverage/versions"));
     });
   }
 
   @override
   Widget build(BuildContext context) {
-
-
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CounterCard(
               count: _counter,
             ),
-            Text(value),
+            Text(valueX),
           ],
         ),
       ),
